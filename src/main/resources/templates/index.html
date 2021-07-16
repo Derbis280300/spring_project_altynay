@@ -26,7 +26,7 @@
             <tr>
                 <td>ID</td>
                 <td>NAME</td>
-
+                <td>Date</td>
                 <td>DETAILS</td>
             </tr>
             </thead>
@@ -34,6 +34,8 @@
             <tr th:each="it:${tasks}" >
                 <td th:text="${it.id}"></td>
                 <td  th:text="${it.name}"></td>
+                <td th:text="${it.date}"></td>
+                <td th:text="${it.completion}"></td>
 
 <!--                <td th:if="${it.isCompleted}" th:text="Yes"  ></td>-->
 <!--                <td th:unless="${it.isCompleted}"  th:text="No"></td>-->

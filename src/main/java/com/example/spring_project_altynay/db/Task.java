@@ -24,12 +24,11 @@ public class Task {
     @Column(name = "description")
      private String description;
 
-//    @Column(name="deadlineDate")
-//    private String deadlineDate;
+    @Column(name="date")
+    private String date;
 
 
-
-//    @Column (name="isCompleted")
-//    private boolean isCompleted;
+    @Column(name = "completion")
+    private String completion;
 
 }

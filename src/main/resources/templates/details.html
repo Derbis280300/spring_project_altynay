@@ -17,7 +17,10 @@
                 <h3 class="display-4" th:text="${task.name}"></h3>
                 <p class="lead" th:text="${task.description}"></p>
                 <hr class="my-4">
-
+                <p class="form-control" th:text="${task.date}"></p>
+                Completed:
+                <p class="lead" th:if="${task.completion}" th:text="Yes"></p>
+                <p class="lead" th:unless="${task.completion}" th:text="No"></p>
                 <a class="btn  btn-lg" th:href="@{'/edit/'+${task.id}}" role="button">Edit</a>
 
             </div>

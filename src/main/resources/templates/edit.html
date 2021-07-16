@@ -24,6 +24,16 @@
                 <textarea name="task_description"  class="form-control" th:text="${task.description}"></textarea>
             </div>
 
+                <div class="form-group">
+                    <input type="text" th:text="${task.date}"  name="date">
+                </div>
+                <div class="form-group"><label>Complete</label>
+                    <select name="completion" class="form-control">
+                        <option value="yes" selected>Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+
             <div class="form-group">
                 <button class="btn btn-success" >Save the task</button>
 

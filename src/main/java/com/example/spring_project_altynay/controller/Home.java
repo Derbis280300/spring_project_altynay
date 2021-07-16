@@ -31,12 +31,16 @@ public class Home {
 
  @PostMapping (value = "/addPost")
     public String add(@RequestParam(name = "task_name") String name,
-                      @RequestParam(name="task_description") String description
+                      @RequestParam(name="task_description") String description,
+                      @RequestParam(name="date") String date,
+                      @RequestParam(name="completion") String completion
 
  ){
      Task task=new Task();
      task.setName(name);
      task.setDescription(description);
+     task.setDate(date);
+     task.setCompletion(completion);
 
      taskService.addTask(task);
      return "redirect:/";
@@ -61,12 +65,16 @@ public class Home {
  @PostMapping(value="/post_edit")
     public String editTask(@RequestParam(name = "taskId") Long id,
                            @RequestParam(name = "task_name") String name,
-                           @RequestParam(name="task_description") String description)
+                           @RequestParam(name="task_description") String description,
+                            @RequestParam(name = "date") String date,
+                       @RequestParam(name = "completion") String completion)
  {
   Task task=taskService.getTask(id);
      if (task != null) {
          task.setName(name);
          task.setDescription(description);
+         task.setCompletion(completion);
+         task.setDate(date);
 //
          taskService.update(task);
          return "redirect:/details/"+id;
