@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Details</title>
+    <link rel="stylesheet" type="text/css" th:href="@{'/css/bootstrap.css'}">
+    <script type="text/javascript" th:src="@{'/js/bootstrap.js'}"></script>
+</head>
+<body>
+<div class="container" th:insert="~{navbar.html}">
+</div>
+
+<div class="container mt-2">
+    <div class="row">
+        <div class="col-6 mx-auto" >
+            <div class="jumbotron" th:if="${task}!=null">
+                <h3 class="display-4" th:text="${task.name}"></h3>
+                <p class="lead" th:text="${task.description}"></p>
+                <hr class="my-4">
+
+                <a class="btn  btn-lg" th:href="@{'/edit/'+${task.id}}" role="button">Edit</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

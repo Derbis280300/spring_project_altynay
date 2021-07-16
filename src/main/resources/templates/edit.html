@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <title>Edit</title>
+    <link rel="stylesheet" type="text/css" th:href="@{'/css/bootstrap.css'}">
+</head>
+<body>
+<div class="container" th:insert="~{navbar.html}">
+</div>
+
+<div class="container mt-2">
+    <div class="row">
+        <div class="col-6 mx-auto" >
+            <form action="/post_edit" method="post" th:if="${task}!=null">
+                <input type="hidden" name="taskId" th:value="${task.id}">
+
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" name="task_name"  class="form-control" th:value="${task.name}">
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea name="task_description"  class="form-control" th:text="${task.description}"></textarea>
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-success" >Save the task</button>
+
+            </div>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Delete
+                </button>
+            </form>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form action="/delete" method="post" th:if ="${task}!=null">
+                            <div class="modal-header">
+                                <input type="hidden" name="id" th:value="${task.id}">
+                                <h5 class="modal-title" id="exampleModalLabel">Confirm to delete item</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button  class="btn btn-danger">Delete</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" th:src="@{'/js/bootstrap.js'}"></script>
+</html>
